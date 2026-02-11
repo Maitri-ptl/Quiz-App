@@ -1,6 +1,3 @@
-// console.log("JS loaded");
-// console.log(jsQuiz);
-
 const startBtn = document.getElementById("startBtn");
 const startScreen = document.getElementById("startScreen");
 const quizApp = document.getElementById("quizApp");
@@ -137,19 +134,47 @@ const handleresult = () => {
   const result = document.getElementById('result');
   const score = document.getElementById('score');
 
-  result.style.display = 'flex';
-  score.textContent = '0';
+  document.getElementById('Quiz').style.visibility = 'hidden';
+  result.classList.add('show-popup');
 
   let count = 0;
   const interval = setInterval(() => {
     score.textContent = count;
-    if (count == totalscore) {
+    if (count === totalscore) {
       clearInterval(interval);
     }
     count++;
-  }, 60);
+  }, 50);
 };
 
 submitbtn.addEventListener('click', handleresult);
 
+document.getElementById('closeResult').addEventListener('click', () => {
 
+  document.getElementById('result').classList.remove('show-popup');
+  document.getElementById('Quiz').style.visibility = 'visible';
+
+});
+
+const closeResult = document.getElementById("closeResult");
+
+closeResult.addEventListener("click", () => {
+
+  document.getElementById("result").style.display = "none";
+  startScreen.style.display = "flex";
+  startScreen.style.opacity = "1";
+
+  jsQuiz.forEach(element => delete element.yourans);
+  currQue = 0;
+
+  attempted.textContent = "0";
+  notAttempted.textContent = jsQuiz.length;
+
+  document.querySelectorAll(".que-list").forEach(btn => {
+    btn.classList.remove("attempted");
+    btn.classList.add("not-attempted");
+  });
+
+  document.querySelector('.display-quiz').style.display = "block";
+
+});

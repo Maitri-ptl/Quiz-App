@@ -27,7 +27,7 @@
 
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" id="Quiz">
             <div class="col-md-3">
                 <div class="display-que vh-100">
                     <h2 class="d-flex justify-content-center align-items-center pt-4 fst-italic"> Question-List </h2>
@@ -109,13 +109,14 @@
                     <div id="result" class="result-screen">
                         <div class="result-card">
                             <h2>Quiz Completed</h2>
-
+                            
                             <div class="score-circle">
                                 <span id="score">0</span>
                                 <small>/ 30</small>
                             </div>
-
+                            
                             <p class="result-text">Great effort! Keep learning</p>
+                            <button class="close-btn btn mt-3" id="closeResult">x</button>
                         </div>
                     </div>
                 </div>
